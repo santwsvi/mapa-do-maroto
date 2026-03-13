@@ -1,22 +1,41 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { FiExternalLink, FiGithub, FiStar } from "react-icons/fi";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
-interface Repo {
+interface Project {
   id: number;
   name: string;
-  description: string | null;
+  description: string;
   html_url: string;
   homepage: string | null;
-  stargazers_count: number;
   language: string | null;
 }
 
-const FALLBACK: Repo[] = [
-  { id: 1, name: "mapa-do-maroto", description: "Portfólio interativo inspirado no Mapa do Maroto — SPA em Next.js com feitiços e animações mágicas.", html_url: "https://github.com/", homepage: null, stargazers_count: 8,  language: "TypeScript" },
-  { id: 2, name: "potion-api",     description: "API RESTful com autenticação JWT, rate-limiting e documentação Swagger automática.", html_url: "https://github.com/", homepage: null, stargazers_count: 21, language: "C" },
-  { id: 3, name: "sorting-hat-ml", description: "Modelo NLP que classifica texto em 'casas' por estilo de escrita — acurácia de 87%.", html_url: "https://github.com/", homepage: null, stargazers_count: 34, language: "C" },
+const PROJECTS: Project[] = [
+  {
+    id: 1,
+    name: "mapa-do-maroto",
+    description: "Portfólio interativo inspirado no Mapa do Maroto — SPA em Next.js com feitiços e animações mágicas.",
+    html_url: "https://github.com/santwsvi/mapa-do-maroto",
+    homepage: null,
+    language: "React/Typescript + Next.js",
+  },
+  {
+    id: 2,
+    name: "locamais",
+    description: "Sistema de locação de veículos com gestão de clientes, frota e contratos.",
+    html_url: "https://github.com/santwsvi/locamais",
+    homepage: null,
+    language: "C",
+  },
+  {
+    id: 3,
+    name: "normalize-feature-vector-performance-evaluation",
+    description: "Avaliação de desempenho de normalização de vetores de características para classificação de dados.",
+    html_url: "https://github.com/santwsvi/normalize-feature-vector-performance-evaluation",
+    homepage: null,
+    language: "C",
+  },
 ];
 
 const LANG_COLORS: Record<string, string> = {
@@ -34,17 +53,6 @@ const cardVariants = {
 };
 
 export default function ProjectsSection() {
-  const [projects, setProjects] = useState<Repo[]>([]);
-  const [loading, setLoading]   = useState(true);
-
-  useEffect(() => {
-    fetch("https://api.github.com/users/victor-gabriel/repos?sort=stars&per_page=6")
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((data: Repo[]) => setProjects(Array.isArray(data) && data.length ? data.slice(0, 6) : FALLBACK))
-      .catch(() => setProjects(FALLBACK))
-      .finally(() => setLoading(false));
-  }, []);
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -58,19 +66,13 @@ export default function ProjectsSection() {
         <h2 className="section-title">Passagens Secretas</h2>
       </div>
 
-      {loading ? (
-        <div className="text-center py-16 font-cinzel animate-pulse-gold"
-             style={{ color: "var(--ink-ghost)", fontSize: "var(--text-xs)", letterSpacing: "0.18em" }}>
-          Consultando o Registro de Feitiços...
-        </div>
-      ) : (
-        <motion.div
-          variants={containerVariants}
-          initial="initial"
-          animate="animate"
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
-        >
-          {projects.map((p) => (
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+      >
+        {PROJECTS.map((p) => (
             <motion.div
               key={p.id}
               variants={cardVariants}
@@ -82,11 +84,6 @@ export default function ProjectsSection() {
                     style={{ color: "var(--gold-light)" }}>
                   📜 {p.name}
                 </h3>
-                  <div className="flex items-center gap-1 flex-shrink-0"
-                     style={{ color: "var(--ink-muted)", fontSize: "var(--text-sm)" }}>
-                  <FiStar size={11} />
-                  <span className="font-cinzel" style={{ fontSize: "var(--text-xs)" }}>{p.stargazers_count}</span>
-                </div>
               </div>
 
               {/* Description */}
@@ -131,7 +128,6 @@ export default function ProjectsSection() {
             </motion.div>
           ))}
         </motion.div>
-      )}
     </motion.div>
   );
 }
