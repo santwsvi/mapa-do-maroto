@@ -137,6 +137,26 @@ O projeto usa um sistema de **design tokens** com paleta inspirada em pergaminho
 
 ---
 
+## 📄 Licença
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
+
+MIT License
+
+Copyright (c) 2026 Felipe Giannetti Fontenelle
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+
+---
+
 ## 👤 Autor
 
 **Victor Gabriel Santos Rocha** — Engenheiro de Software
@@ -144,15 +164,3 @@ O projeto usa um sistema de **design tokens** com paleta inspirada em pergaminho
 - GitHub: [@santwsvi](https://github.com/santwsvi)
 - LinkedIn: [/in/victorgsrocha](https://linkedin.com/in/victorgsrocha)
 - E-mail: victorgsantosrocha@gmail.com
-
----
-
-## 📄 Licença
-
-Este projeto é de uso pessoal como portfólio. Sinta-se livre para se inspirar, mas por favor dê os devidos créditos.
-
----
-
-<p align="center">
-  <i>Malfeito feito.</i> 🗺️
-</p>
