@@ -1,5 +1,3 @@
-# 🗺️ O Mapa do Maroto — Portfólio
-
 > *"Juro solenemente não fazer nada de bom."*
 
 Portfólio pessoal interativo inspirado no **Mapa do Maroto** de Harry Potter. Em vez de navegação tradicional, o usuário lança **feitiços** para revelar seções secretas do mapa — criando uma experiência imersiva e temática.
