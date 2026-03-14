@@ -142,7 +142,7 @@ Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE par
 
 MIT License
 
-Copyright (c) 2026 Felipe Giannetti Fontenelle
+Copyright (c) 2026 Victor Gabriel Santos Rocha
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
